@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import 'remixicon/fonts/remixicon.css';
 import './index.scss';
 import Header from 'home/Header';
 import Footer from 'home/Footer';
@@ -13,9 +13,10 @@ const App = () => (
     <div className='mt-10 text-3xl mx-auto max-w-6xl'>
       <SafeComponent>
         <Header />
-
         <Routes>
-          <Route path='/products/:id' element={<PDPContent />} />
+          <Route path='/products' element={<PDPContent />}>
+            <Route path=':id' element={<PDPContent />} />
+          </Route>
         </Routes>
         <Footer />
       </SafeComponent>
