@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLoggedIn, addToCart } from 'cart/cart';
 import { currency, getProducts } from './products';
+import { Link } from 'react-router-dom';
 
 const HomeContent = () => {
   const loggedIn = useLoggedIn();
@@ -15,7 +16,7 @@ const HomeContent = () => {
           <img src={product.image} alt={product.name} />
           <div className='flex'>
             <div className='flex-grow font-bold'>
-              <a>{product.name}</a>
+              <Link to={`/products/${product.id}`}>{product.name}</Link>
             </div>
             <div className='flex-end'>{currency.format(product.price)}</div>
           </div>
